@@ -1,0 +1,52 @@
+<!-- Mad Libs style exercise - My first JS program -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+            var newLine = "\r\n"
+            var message = "The silly fool, the silly fool"
+            message += newLine;
+            message += "Was sillier in school"
+            message += newLine;
+            message += "But beat the bully as a rule."
+            message += newLine;
+            message += newLine;
+            message += "The youngest son, the youngest son"
+            message += newLine;
+            message += "Was certainly no wise one"
+            message += newLine;
+            message += "Yet could surprise one."
+            message += newLine;
+            message += newLine;
+            message += "A little game. Let's try to recreate this short poem. Click 'Ok'"
+        alert(message);
+
+
+        var noun = prompt("Enter a noun");
+        var noun2 = prompt("Enter another noun");
+        var verb = prompt("Enter a verb");
+        var verb2 = prompt("Enter a second verb");
+        var verb3 = prompt("Enter a third verb");
+        var adj = prompt("Enter an adjective");
+        var adj2 = prompt("Enter another adjective");
+        var adj3 = prompt("Enter and a third adjective");
+        var out = "The " + adj + " " + noun + ", " + "the " + adj + " " + noun + ".<br>";
+         out += verb + " sillier in school<br>";
+         out += "But " + verb2 +  " the bully as a rule.<br><br>";
+         out += "The " + adj2 + " " + noun2 + "," + " the " + adj2 + " " + noun2 + ".<br>";
+         out += "Was certainly no " + adj3 + " one <br>";
+         out += "Yet could " + verb3 + " one.<br>";
+
+        document.getElementById('output').innerHTML = out;
+    </script>
+</body>
+</html>

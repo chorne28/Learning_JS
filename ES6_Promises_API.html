@@ -1,0 +1,115 @@
+<!-- The “Lorem Picsum” API sends random images,
+similar to the cat API above. It does have a few
+more features. You can get a random picture from
+the API using the following URL: https://picsum.
+photos/200/300/?random.
+In the URL 200 represents the width of the image
+requested and 300 the height.
+Implement this API using a
+promise, however, take the width and height from
+data entered by the user in a form. Your interface
+should have a field for the user to enter a width, a
+field to enter the height and a button that retrieves
+and displays a photo of the indicated size.
+Once you have this working view the API instructions
+at https://picsum.photos/ and add to your form a
+checkbox that will request a grayscale image when
+checked. -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+
+    <style>
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .container h1,
+        h3 {
+            text-align: center;
+        }
+
+        .image {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .form input {
+            margin: 0 6px;
+        }
+
+        .form button {
+            margin: 10px 9px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Imaginary Friends</h1>
+        <h3>Set the height and the width of your picture</h3>
+
+        <div class="image" id="image-holder"></div>
+
+        <div class="form">
+            <form action="">
+                <input id="height" type="number" placeholder="Height in pixels">
+                <input id="width" type="number" placeholder="Width in pixels">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox">Grayscale</label>
+            </form>
+            <button>Show</button>
+        </div>
+
+    </div>
+
+    <script>
+        var img = null;
+        let imgPromise = new Promise(function (resolve, reject) {
+            img = new Image();
+            img.addEventListener('load', resolve(img));
+            img.addEventListener('error', reject('Could not load image'));
+            img.src = "https://picsum.photos/id/237/200/300";
+
+        });
+
+        imgPromise.then(document.querySelector('button').onclick = function (fromResolve) {
+            console.log('The image has loaded. Yay!');
+            let node = document.getElementById('image-holder');
+            node.appendChild(img);
+            img.height = document.getElementById('height').value;
+            img.width = document.getElementById('width').value;
+            var gray = document.getElementById('checkbox');
+            if (gray.checked == true) {
+                img.src = "https://picsum.photos/id/237/200/300?grayscale";
+            } else {
+                img.src = "https://picsum.photos/id/237/200/300";
+            }
+
+        }).catch(function (fromReject) {
+            console.log(fromReject);
+        });
+    </script>
+</body>
+
+</html>

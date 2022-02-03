@@ -1,0 +1,46 @@
+<!-- Section B: Prompt the user for a number of rows
+and a number of columns. Using the * output the *
+character in the row and column pattern requested
+by the user. If the user requests 2 rows and 2
+columns you should output:
+**
+**
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section B</title>
+</head>
+
+<body>
+    <div id="output"></div>
+    <script>
+        var star = "*";
+        var row = parseInt(prompt("Number of rows"));
+        var column = parseInt(prompt("Number of columns"));
+
+        if (isNaN(row) || isNaN(column)) {
+            alert('Please restart your programm and enter numbers this time');
+        } else {
+            if (row > 0 && column > 0) {
+                if (column != 0 && row != 0) {
+                    document.getElementById('output').innerHTML += star.repeat(column) + "<br/>";
+                } while (row > 1) {
+                    document.getElementById('output').innerHTML += star.repeat(column) + "<br/>";
+                    row--;
+                }
+            }else{
+                alert('Please enter a number bigger als 0');
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

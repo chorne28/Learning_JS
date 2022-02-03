@@ -1,0 +1,82 @@
+<!-- We’re going to redo the calculator exercise from
+earlier in the course, but this time, please don’t
+use var to declare your variables. Use let and, if
+appropriate, const. 
+Here are the instructions:
+Create a calculator. You will prompt the user three
+times. For the first prompt, ask the user for the first
+number to be calculated. For the second prompt, ask
+the user for the second number to be calculated. On
+the third prompt ask for an operation ( + , - , * , / , %).
+
+Once the user entries to the prompts are stored,
+perform the operation requested and output the
+entire equation. 
+
+One additional caveat: The results of the calculation
+must be shown using a function called showResult().
+Lab submissions not using this function will be
+returned for correction. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator JS</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+
+        function showResult(){
+            
+            let firstnr = parseFloat(prompt("Please Enter the First number."));
+            let secondnr = parseFloat(prompt("Please Enter the Second number."));
+            let operation = prompt("Enter an operation: + , - , * , / , %");
+            switch (operation){
+
+                //i used const for the arithmetic operations because whatever number i prompt the operation will never change
+
+                case '+':
+                    {
+                        const addition = firstnr + secondnr;
+                        document.getElementById('output').innerHTML = firstnr + " + " + secondnr + " = " + addition;
+                        break;
+                    }
+
+                case '-':
+                    {
+                        const substraction = firstnr - secondnr;
+                        document.getElementById('output').innerHTML = firstnr + " - " + secondnr + " = " + substraction;
+                        break;
+                    }
+
+                case '*':
+                    {
+                        const multiplication = firstnr * secondnr;
+                        document.getElementById('output').innerHTML = firstnr + " x " + secondnr + " = " + multiplication;
+                        break;
+                    }
+
+                case '/':
+                    {
+                        const division = firstnr / secondnr;
+                        document.getElementById('output').innerHTML = firstnr + " / " + secondnr + " = " + division;
+                        break;
+                    }
+
+                case '%':
+                    {
+                        const remainder = firstnr % secondnr;
+                        document.getElementById('output').innerHTML = firstnr + " % " + secondnr + " = " + remainder;
+                        break;
+                    }
+            }
+        }
+        
+        showResult();
+    </script>
+</body>
+</html>

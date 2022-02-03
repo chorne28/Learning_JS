@@ -1,0 +1,31 @@
+<!-- Create a brand new program in a new file that
+prompts the user for a number. Print out the
+number. Add 10 to the number and print again.
+Add 20 and print again. Add 50 and print a fourth
+time. Finally add 1568 and print a final time. -->
+
+<!DOCTYPE html>
+
+<head>
+    <title>Lab #2</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <script>
+        var number = prompt("Please enter a Number!");
+        var myInteger = parseInt(number); // I chose Int because it's enough for our exercise, and to be able to use mathematical operators, otherwise my prompt would be just a string and would not work
+
+        var add10 = myInteger + 10;
+        var add20 = add10 + 20;
+        var add50 = add20 + 50;
+        var add1568 = add50 + 1568;
+
+        document.getElementById('output').innerHTML = myInteger + "<br/>" + add10 + "<br/>" + add20 + "<br/>" + add50 + "<br/>" + add1568;
+
+        
+    </script>
+</body>
+
+</html>

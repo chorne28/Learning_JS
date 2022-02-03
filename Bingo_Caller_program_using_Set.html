@@ -1,0 +1,212 @@
+<!-- Your program should have 3 buttons. The first
+button displays a random member of the set to call.
+That number should not be called again until the
+game is reset. Each time the first button is pressed a
+new BINGO number is displayed. The second button,
+used when someone calls BINGO, displays all the
+numbers that have been called so far for verification
+and and the third button starts or resets the game allowing you to play again. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .callnumbers {
+            width: 50%;
+            height: 300px;
+            background: rgb(169, 195, 243);
+            border-right: 1px solid black;
+        }
+
+        .callnumbers button {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .callnumbers p {
+            text-align: center;
+            margin-top: 100px;
+            color: red;
+            font-size: 40px;
+        }
+
+        .shownumbers {
+            width: 50%;
+            height: 300px;
+            background: rgb(169, 195, 243);
+            border-left: 1px solid black;
+            overflow-y: scroll;
+        }
+
+        .shownumbers button {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .shownumbers p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .reset {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .reset button {
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="callnumbers">
+            <button onClick="callnumbers()">Call a number</button>
+            <div id="callnumbers"></div>
+        </div>
+        <div class="shownumbers">
+            <button onClick="shownumbers()">Called Numbers</button>
+            <div id="shownumbers"></div>
+        </div>
+    </div>
+    <div class="reset">
+        <button onClick="startgame()">Start</button>
+    </div>
+
+    <script>
+        const numbers = new Set()
+            .add("B1")
+            .add("B2")
+            .add("B3")
+            .add("B4")
+            .add("B5")
+            .add("B6")
+            .add("B7")
+            .add("B8")
+            .add("B9")
+            .add("B10")
+            .add("B11")
+            .add("B12")
+            .add("B13")
+            .add("B14")
+            .add("B15")
+            .add("I16")
+            .add("I17")
+            .add("I18")
+            .add("I19")
+            .add("I20")
+            .add("I21")
+            .add("I22")
+            .add("I23")
+            .add("I24")
+            .add("I25")
+            .add("I26")
+            .add("I27")
+            .add("I28")
+            .add("I29")
+            .add("I30")
+            .add("N31")
+            .add("N32")
+            .add("N33")
+            .add("N35")
+            .add("N35")
+            .add("N36")
+            .add("N37")
+            .add("N38")
+            .add("N39")
+            .add("N40")
+            .add("N41")
+            .add("N42")
+            .add("N43")
+            .add("N44")
+            .add("N45")
+            .add("G46")
+            .add("G47")
+            .add("G48")
+            .add("G49")
+            .add("G50")
+            .add("G51")
+            .add("G52")
+            .add("G53")
+            .add("G54")
+            .add("G55")
+            .add("G56")
+            .add("G57")
+            .add("G58")
+            .add("G59")
+            .add("G60")
+            .add("O61")
+            .add("O62")
+            .add("O63")
+            .add("O64")
+            .add("O65")
+            .add("O66")
+            .add("O67")
+            .add("O68")
+            .add("O69")
+            .add("O70")
+            .add("O71")
+            .add("O72")
+            .add("O73")
+            .add("O74")
+            .add("O75");
+        let currentnr = [];
+        let previousnr = [];
+
+        alert("Welcome to BINGO. Click 'Start' button");
+
+        function startgame() { 
+            currentnr = Array.from(numbers);
+            previousnr = [];
+            document.getElementById('callnumbers').innerHTML ="";
+            document.getElementById('shownumbers').innerHTML ="";
+            alert("Let's start. Call a number by clicking the 'Call a number' button. Click 'Called numbers' to see all called numbers");
+        }
+
+        function callnumbers() {
+     
+            let random = Math.floor(Math.random() * currentnr.length); //this was a google search too, to see how can i randomly return a whole number
+            let remove = currentnr.splice(random,1); /*i had to research a bit, and with some examples i found this option -- splice(start, deleteCount) -- to can remove the number already called*/
+
+            if (currentnr.length > 1) { //used this to make sure i push only our set()'s elements and not fill the list with empty spaces after
+                document.getElementById("callnumbers").innerHTML = '<p>' + remove + '</p>';
+                previousnr.push(remove);
+            } else if(currentnr.length == 0){
+                alert("First press the Start button");
+                    }
+            
+                    else {
+                alert("This is the last number, no others left to call. Please start a new game");
+                    }
+        }
+
+        function shownumbers() {
+            let previousoutput = "";
+            for (x = 0; x < previousnr.length; x++) {
+                previousoutput += previousnr[x] + "<br/>";
+            }
+            document.getElementById("shownumbers").innerHTML = '<p>' + previousoutput + '</p>';
+
+            if(previousnr.length == 0){
+                alert("The list is empty, Start the game, if already done then call a number"); 
+            }
+        }
+    </script>
+</body>
+
+</html>

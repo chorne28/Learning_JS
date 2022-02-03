@@ -1,0 +1,51 @@
+<!--  please write a program
+that asks the user to enter a list of GPA’s (and XXX to
+quit). Once the GPA’s are entered output the following
+information:
+B) The average of the GPA’s -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Average</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script>
+    var list_of_grades = [];
+    var grades = "";
+
+    while (grades != "XXX") {
+      grades = prompt("Enter a list of grades between 0 and 4 and XXX to stop when you entered all");
+      if (parseFloat(grades) >= 0 && parseFloat(grades) <= 4) {
+        list_of_grades.push(grades);
+      } else if (grades != "XXX") {
+        alert("Please enter a right value");
+
+      } else {
+        alert("Let's see the results!")
+      }
+    }
+
+    var length = list_of_grades.length;
+    var sum = 0;
+    for (var x = 0; x < length; x++) {
+      sum = sum + parseFloat(list_of_grades[x]);
+    }
+    document.getElementById('output').innerHTML = "The average of the GPA's: " + sum / length;
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

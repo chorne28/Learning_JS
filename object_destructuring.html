@@ -1,0 +1,276 @@
+<!-- Consider the following JavaScript object:
+
+    var userList = {
+ “people”: [
+
+ { firstName: “Fred”,
+ lastName: “Smith”,
+ dateOfBirth: 1980,
+ spokenLanguages: {
+ native: “English”,
+ fluent: “Spanish”,
+ intermediate: “Chinese” }
+ },
+ { firstName: “Monica”,
+ lastName: “Taylor”,
+ dateOfBirth: 1975,
+ spokenLanguages: {
+ native: “Spanish”,
+ fluent: “English”,
+ intermediate: “French” }
+ },
+ { firstName: “Maurice”,
+ lastName: “Edelson”,
+ dateOfBirth: 1992,
+ spokenLanguages: {
+ native: “English”,
+ fluent: “Spanish”,
+ } 
+},
+ { firstName: “Kelly”,
+ lastName: “Lang”,
+ dateOfBirth: 1982,
+ spokenLanguages: {
+ native: “English”,
+ fluent: “German”,
+ intermediate: “Dutch” }
+ }
+]
+};
+
+
+Using object destructuring, output an HTML table of
+each employees name and date of birth, along with
+the languages that they speak. Make sure your table
+is well constructed and easy to consume for the user.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+
+    <style>
+        .container{
+            width: 80%;
+            margin: 0 auto;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        tr,th,td{
+            border: 0.5px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+        .blue{
+            color: white;
+            background: blue;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .green{
+            color: white;
+            background: green;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .orange{
+            color: white;
+            background: orange;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .red{
+            color: white;
+            background: red;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .fn{
+            color: white;
+            background:saddlebrown;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .ln{
+            color: white;
+            background: tomato;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .dob{
+            color: white;
+            background:slateblue;
+            text-shadow: 1px -0.8px 0.3px black;
+        }
+        .grey{
+            background: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <table>
+            <tr>
+                <th rowspan="2" class="fn">First Name</th>
+                <th rowspan="2" class="ln">Last Name</th>
+                <th rowspan="2" class="dob">Date of Birth</th>
+                <th rowspan="1" colspan="3" class="blue">Spoken Language
+                    <tr>
+                        <th class="green">Native</th>
+                        <th class="orange">Fluent</th>
+                        <th class="red">Intermediate</th>
+                    </tr>
+                </th>
+            </tr>
+
+            <tr>
+                <td id="firstname1"></td>
+                <td id="lastname1"></td>
+                <td id="dateofbirth1"></td>
+                <td id="native1"></td>
+                <td id="fluent1"></td>
+                <td id="intermediate1"></td>
+            </tr>
+
+            <tr class="grey">
+                <td id="firstname2">a/td>
+                <td id="lastname2"></td>
+                <td id="dateofbirth2"></td>
+                <td id="native2"></td>
+                <td id="fluent2"></td>
+                <td id="intermediate2"></td>
+            </tr>
+
+            <tr>
+                <td id="firstname3"></td>
+                <td id="lastname3"></td>
+                <td id="dateofbirth3"></td>
+                <td id="native3"></td>
+                <td id="fluent3"></td>
+                <td id="intermediate3"></td>
+            </tr>
+
+            <tr class="grey">
+                <td id="firstname4"></td>
+                <td id="lastname4"></td>
+                <td id="dateofbirth4"></td>
+                <td id="native4"></td>
+                <td id="fluent4"></td>
+                <td id="intermediate4"></td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+
+    <script>
+        var userList = {
+            "people":[
+                {
+                    firstName: "Fred",
+                    lastName: "Smith",
+                    dateOfBirth: 1980,
+                    spokenLanguages: {
+                        native: "English",
+                        fluent: "Spanish",
+                        intermediate: "Chinese"
+                    }
+                },
+
+                {
+                    firstName: "Monica",
+                    lastName: "Taylor",
+                    dateOfBirth: 1975,
+                    spokenLanguages: {
+                        native: "Spanish",
+                        fluent: "English",
+                        intermediate: "French"
+                    }
+                },
+
+                {
+                    firstName: "Maurice",
+                    lastName: "Edelson",
+                    dateOfBirth: 1992,
+                    spokenLanguages: {
+                        native: "English",
+                        fluent: "Spanish",
+                    }
+                },
+
+                {
+                    firstName: "Kelly",
+                    lastName: "Lang",
+                    dateOfBirth: 1982,
+                    spokenLanguages: {
+                        native: "English",
+                        fluent: "German",
+                        intermediate: "Dutch"
+                    }
+                }
+            ]
+        }
+
+    {    
+        let {firstName, lastName, dateOfBirth} = userList.people[0];
+        let {native, fluent, intermediate} = userList.people[0].spokenLanguages;
+        
+        document.getElementById('firstname1').innerHTML = firstName;
+        document.getElementById('lastname1').innerHTML = lastName;
+        document.getElementById('dateofbirth1').innerHTML = dateOfBirth;
+        document.getElementById('native1').innerHTML = native;
+        document.getElementById('fluent1').innerHTML = fluent;
+        document.getElementById('intermediate1').innerHTML = intermediate;
+
+    }
+
+    {
+        let {firstName, lastName, dateOfBirth} = userList.people[1];
+        let {native, fluent, intermediate} = userList.people[1].spokenLanguages;
+
+        document.getElementById('firstname2').innerHTML = firstName;
+        document.getElementById('lastname2').innerHTML = lastName;
+        document.getElementById('dateofbirth2').innerHTML = dateOfBirth;
+        document.getElementById('native2').innerHTML = native;
+        document.getElementById('fluent2').innerHTML = fluent;
+        document.getElementById('intermediate2').innerHTML = intermediate;
+        
+    }
+
+    {
+        let {firstName, lastName, dateOfBirth} = userList.people[2];
+        let {native, fluent, intermediate} = userList.people[2].spokenLanguages;
+
+        document.getElementById('firstname3').innerHTML = firstName;
+        document.getElementById('lastname3').innerHTML = lastName;
+        document.getElementById('dateofbirth3').innerHTML = dateOfBirth;
+        document.getElementById('native3').innerHTML = native;
+        document.getElementById('fluent3').innerHTML = fluent;
+        
+        if(intermediate == null){
+            intermediate = "-";
+            document.getElementById('intermediate3').innerHTML = intermediate;
+        }
+        
+    }
+
+    {
+        let {firstName, lastName, dateOfBirth} = userList.people[3];
+        let {native, fluent, intermediate} = userList.people[3].spokenLanguages;
+
+        document.getElementById('firstname4').innerHTML = firstName;
+        document.getElementById('lastname4').innerHTML = lastName;
+        document.getElementById('dateofbirth4').innerHTML = dateOfBirth;
+        document.getElementById('native4').innerHTML = native;
+        document.getElementById('fluent4').innerHTML = fluent;
+        document.getElementById('intermediate4').innerHTML = intermediate;
+        
+    }
+        
+
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!-- It’s clean up time at Camp Whack-a-Doo. The problem
+is the campers never know which chores are theirs.
+You have been tasked with creating a JavaScript
+program to store the campers and assign tasks. The
+data should be stored in a map.
+When the program starts the user should be
+instructed to enter a campers name, and then a task.
+
+The tasks should be limited to the following:
+Front Room Sweep
+Back Room Sweep
+Outside Grounds
+Clean Toilet
+Clean Sink
+Trash Patrol and Supplies
+
+The campers’ names and assignments should be
+stored in a map with the task being the key and the
+camper’s name the value.
+The interface should include a button that, when
+clicked lists all the campers names and their cleanup assignments.
+
+The requirements here are purposefully a bit vague
+giving you some latitude on how you implement
+a correct solution. Just make sure you meet the
+requirements listed. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Dos</title>
+    <style>
+        body {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        div {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        div button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        #output {
+            width: 180px;
+            height: 300px;
+            text-align: center;
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <button onclick="enterTask()">Enter your task</button>
+        <button onclick="showAll()">Show All Current Assignments</button>
+        <div id="output"></div>
+        <button onclick="refresh()">Refresh the list</button>
+
+    </div>
+    <script>
+
+        let myToDos = new Map(); // the map
+
+        const task = ["Front Room Sweep", // array where i stored the tasks
+            "Back Room Sweep",
+            "Outside Grounds",
+            "Clean Toilet",
+            "Clean Sink",
+            "Trash Patrol and Supplies"];
+
+        let lists; // used to store multiple values in map
+
+        //instructions how to use the page
+        alert("Welcome. Please choose a task by clicking 'Enter your task'. You can check the chosen tasks by clicking 'Show All Current Assignments'");
+
+        function enterTask() {
+
+            let name = prompt("Please enter your name: ");
+            let ask_for_task;
+            //i tried several times to make the condition shorter, but without success, in any case, i wanted to make sure we can insert only those given tasks
+            while (ask_for_task != task[0] && ask_for_task != task[1] && ask_for_task != task[2] && ask_for_task != task[3] && ask_for_task != task[4] && ask_for_task != task[5]) {
+                ask_for_task = prompt("Choose a task: " + task);
+                if (ask_for_task == task[0] || ask_for_task == task[1] || ask_for_task == task[2] || ask_for_task == task[3] || ask_for_task == task[4] || ask_for_task == task[5]) {
+                    // used to store multiple values in map
+                    lists = myToDos.set(ask_for_task, name);
+                    alert("Well Done");
+
+                } else if (ask_for_task != task[0] && ask_for_task != task[1] && ask_for_task != task[2] && ask_for_task != task[3] && ask_for_task != task[4] && ask_for_task != task[5]) {
+                    alert("Please enter a correct task from the list");
+                }
+            }
+
+
+        }
+
+        function showAll() { /*Each time i press the button, the output will be repeated without deleting what has been previously displayed, i tried but didn't work as intended, for this i created a new button and the function refresh()*/
+            
+            if (lists == null) {
+                alert("The list is empty");
+            }
+            else {
+                for (let r of myToDos.entries(myToDos)) {
+                    document.getElementById('output').innerHTML += r[0] + ": " + r[1] + "<br/>";
+                }
+
+            }
+
+        }
+
+        function refresh(){/*Used to refresh the list of activities*/
+            document.getElementById('output').innerHTML = "";
+        }
+
+
+    </script>
+</body>
+
+</html>

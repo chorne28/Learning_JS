@@ -1,0 +1,44 @@
+<!-- Create a program that prompts the user twice for
+numbers. Store those variables in variables called
+operand1 and operand2. Using mathematical
+operators, display the answers to the following
+questions:
+What is the sum of operand1 and operand2?
+What is the result if you subtract operand2 from
+operand1?
+What is the result if you multiple operand1 by
+operand2?
+Is operand1 equal to operand2?
+JAVASCRIPT FOR APPLICATION DEVELOPMENT PAGE 9
+Is operand1 smaller than operand2?
+Can you divide Operand2 evenly in to operand1? -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        var operand1 = parseInt(prompt("Introduce the first number"));
+        var operand2 = parseInt(prompt("Introduce the second number"));
+
+        document.getElementById('output').innerHTML += "Sum: " + (operand1 + operand2) + "<br/>";
+
+        document.getElementById('output').innerHTML += "Substract: " + (operand2 / operand1) + "<br/>";
+
+        document.getElementById('output').innerHTML += "Multiply: " + (operand1 * operand2) + "<br/>";
+
+        document.getElementById('output').innerHTML += "The 2 numbers are equal: " + (operand1 == operand2) + "<br/>";
+
+        document.getElementById('output').innerHTML += "First number is smaller than the second: " + (operand1 < operand2) + "<br/>";
+
+        document.getElementById('output').innerHTML += "The second number can be evenly divided to first: " + (operand2 % operand1 == 0);
+        
+    </script>
+</body>
+</html>

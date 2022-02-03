@@ -1,0 +1,32 @@
+<!-- 1. Prompt the user for a list separator. (For example
+comma, space, the pipe symbol | , ampersand, or
+any other character can be used as a separator).
+2. Print out the list using the separator the user
+input between each name. For example: Tom |
+Bob | Mary | Caitlyn | Red | Douglas | Judy | Susan . -->
+
+<!DOCTYPE html>
+<head>
+    <title>Lab #2</title>
+</head>
+<body>
+    <div id="out"></div>
+    <script>
+        name1 = "Tom";
+        name2 = "Bob";
+        name3 = "Mary";
+        name4 = "Caitlyn";
+        name5 = "Red";
+        name6 = "Douglas";
+        name7 = "Judy";
+        name8 = "Susan";
+
+        var separator = prompt("Enter one of the separator type for the list name:" + "\r\n ,   /   |   '(space)'   &   + " );
+        
+        document.getElementById('out').innerHTML = name1 + separator + name2 + separator + name3 + separator + name4 + separator + name5 + separator + name6 + separator + name7 + separator + name8;
+
+        
+        
+    </script>
+</body>
+</html>

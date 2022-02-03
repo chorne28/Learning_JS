@@ -1,0 +1,50 @@
+<!--  please write a program
+that asks the user to enter a list of GPA’s (and XXX to
+quit). Once the GPA’s are entered output the following
+information:
+A) The GPA’s in order from largest to smallest. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reverse</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script>
+    var list_of_grades = [];
+    var grades = "";
+
+      /* A */ var list_reverse =
+      "GPA's in order from largest to smallest: <br/>";
+
+    while (grades != "XXX") {
+      grades = prompt("Enter a list of grades between 0 and 4 and XXX to stop when you entered all");
+      if (parseFloat(grades) >= 0 && parseFloat(grades) <= 4) {
+        list_of_grades.push(parseFloat(grades));
+      } else if (grades != "XXX") {
+        alert("Please enter a right value");
+
+      } else {
+        alert("Let's see the results!")
+      }
+    }
+
+    var length = list_of_grades.length;
+      /* A */ for (var x = 0; x < length; x++) {
+      list_of_grades.sort();
+      list_of_grades.reverse();
+      list_reverse += list_of_grades[x];
+      list_reverse += "<br/>";
+
+      document.getElementById("output").innerHTML = list_reverse;
+    }
+  </script>
+</body>
+
+</html>

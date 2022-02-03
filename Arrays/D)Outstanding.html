@@ -1,0 +1,52 @@
+<!--  please write a program
+that asks the user to enter a list of GPA’s (and XXX to
+quit). Once the GPA’s are entered output the following
+information:
+D) A list of the outstanding GPA’s (Defined as GPA’s
+over 3.4). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outstanding</title>
+</head>
+
+<body>
+  <div id="output"></div>
+  <script>
+    var list_of_grades = [];
+    var grades = "";
+
+    while (grades != "XXX") {
+      grades = prompt("Enter a list of grades between 0 and 4 and XXX to stop when you entered all");
+      if (parseFloat(grades) >= 0 && parseFloat(grades) <= 4) {
+        list_of_grades.push(grades);
+      } else if (grades != "XXX") {
+        alert("Please enter a right value");
+
+      } else {
+        alert("Let's see the results!")
+      }
+    }
+
+    var length = list_of_grades.length;
+    for (var x = 0; x < length; x++) {
+      list_of_grades.sort();
+      var outstanding = parseFloat(list_of_grades[x]);
+
+
+      if (outstanding > 3.4) {
+
+        document.getElementById('output').innerHTML += "Outstanding GPA: " + outstanding + "<br/>";
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

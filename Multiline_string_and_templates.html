@@ -1,0 +1,71 @@
+<!-- Create a program that prompts the user for the
+following information and stores each response in a
+unique variable (You may use a form or the prompt()
+command).
+• A piece of Clothing ( A )
+• Part of Body ( B )
+• Part of Body ( C )
+• Verb Base Form ( D )
+• Part of Body ( E )
+• Verb Base Form ( F )
+• Noun Plural (G)
+• Noun Plural ( H )
+• Verb Base Form ( I )
+Using String Interpolation and the Multiline String
+techniques taught in this section output instructions
+for “Flossing” using the words entered by the user:
+
+How to do The Floss Dance
+1 ) Put on some music
+2 ) Put on a *A* ( optional )
+3 ) Stand with your *B* ever so slightly bent
+4 ) Put your hands in fists
+5 ) Place your *C*, relaxed, at the side of your body 
+6 ) Begin to *D* your *E* left and right around your torso in the
+opposite direction to your hips
+7 ) Keep doing it and increase speed and *F* *G* occasionally for
+effect
+After building confidence, you can also *H* *I* with your arms if
+desired, but this is not mandatory
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madder Libs</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        
+        alert("Hi. We'll learn The Floss Dance together. Let's get started.");
+        
+        let A = prompt("Insert a Piece of Clothing:");
+        let B = prompt("Insert a Part of Body:");
+        let C = prompt("Insert a Part of Body:");
+        let D = prompt("Insert a Verb Base Form:");
+        let E = prompt("Insert a Part of Body:");
+        let F = prompt("Insert a Verb Base Form:");
+        let G = prompt("Insert a Noun Plural:");
+        let H = prompt("Insert a Noun Plural:");
+        let I = prompt("Insert a Verb Base Form:");
+
+        let output = 
+        `How to do The Floss Dance </br>
+        1) Put on some music </br>
+        2) Put on a ${A.toUpperCase()} (optional) </br>
+        3) Stand with your ${B.toUpperCase()} ever so slightly bent </br>
+        4) Put your hands in fists </br>
+        5) Place your ${C.toUpperCase()}, relaxed, at the side of your body  </br>
+        6) Begin to ${D.toUpperCase()} your ${E.toUpperCase()} left and right around your torso in the opposite direction to your hips </br>
+        7) Keep doing it and increase speed and ${F.toUpperCase()} ${G.toUpperCase()} occasionally for effect </br>
+        After building confidence, you can also ${H.toUpperCase()} ${I.toUpperCase()} with your arms if desired, but this is not mandatory.` ;
+
+        document.getElementById('output').innerHTML = output;
+        
+    </script>
+</body>
+</html>

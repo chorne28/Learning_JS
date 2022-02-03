@@ -1,0 +1,56 @@
+<!-- Create a calculator. You will prompt the user three
+times. For the first prompt, ask the user for the first
+number to be calculated. For the second prompt, ask
+the user for the second number to be calculated. On
+the third prompt ask for an operation ( + , - , * , / , %).
+Once the user entry to the prompts are stored,
+perform the operation requested and output the
+entire equation -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        var number1 = prompt("Introduce the first number");
+        var number2 = prompt("Introduce the second number");
+        if(isNaN(number1) || isNaN(number2)){
+            alert('Please restart your programm and enter numbers this time');
+        } else{
+            var operator = prompt("Please choose an operation: " + " + " + " - " + " * " + " / " + " %");
+
+            switch(operator){
+                case '+' :
+                    document.getElementById('output').innerHTML = number1 + " + " + number2 + " = " + (number1 + number2);
+                    break;
+
+                case '-' :
+                    document.getElementById('output').innerHTML = number1 + " - " + number2 + " = " + (number1 - number2);
+                    break;
+
+                case '*' :
+                    document.getElementById('output').innerHTML = number1 + " x " + number2 + " = " + (number1 * number2);
+                    break;
+
+                case '/' :
+                    document.getElementById('output').innerHTML = number1 + " : " + number2 + " = " + (number1 / number2);
+                    break;
+
+                case '%' :
+                    document.getElementById('output').innerHTML = number1 + " % " + number2 + " = " + (number1 % number2);
+                    break;
+
+                default:
+                    alert('Please restart your programm and enter a correct operator');
+            }   
+            
+        }
+    </script>
+</body>
+</html>
